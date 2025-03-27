@@ -21,7 +21,7 @@ try:
     session = cnx.session()
 
     # Retrieve fruit options from Snowflake
-    my_dataframe = session.table("smoothies.public.fruit_options").select(col("FRUIT_NAME"),col('SEATCH_ON'))
+    my_dataframe = session.table("smoothies.public.fruit_options").select(col("FRUIT_NAME"),col('SEARCH_ON'))
     st.dataframe(data=my_dataframe, use_container_width=True)
     st.stop
 
