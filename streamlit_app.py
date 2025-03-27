@@ -42,11 +42,12 @@ try:
     if ingredients_list:
         ingredients_string = ' '.join(ingredients_list)  # Join selected ingredients into a single string
 
-        earch_on=pd_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON'].iloc[0]
-        st.write('The search value for ', fruit_chosen,' is ', search_on, '.')
-
         for fruit_chosen in ingredients_list:
             try:
+
+                search_on=pd_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON'].iloc[0]
+                st.write('The search value for ', fruit_chosen,' is ', search_on, '.')
+
                 # Make API request to get details about each fruit
                 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_chosen)
                 fruityvice_response.raise_for_status()  # Raise an error for bad responses (4xx or 5xx)
